@@ -3,6 +3,8 @@
  */
 package cse5233.hw1;
 
+import cse5233.hw1.view.EditDiagramJFrame;
+
 public class App {
     public static void main(String[] args) {
         EditDiagramJFrame frame = new EditDiagramJFrame();

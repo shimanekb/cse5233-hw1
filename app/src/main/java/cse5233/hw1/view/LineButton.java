@@ -1,4 +1,4 @@
-package cse5233.hw1;
+package cse5233.hw1.view;
 
 import javax.swing.*;
 

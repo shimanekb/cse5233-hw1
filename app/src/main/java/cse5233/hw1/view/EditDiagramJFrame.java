@@ -1,4 +1,4 @@
-package cse5233.hw1;
+package cse5233.hw1.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,13 +15,13 @@ public class EditDiagramJFrame extends JFrame {
 
         MenuPanel menuPanel = new MenuPanel();
         menuPanel.setSize(400, 500);
-        menuPanel.setBackground(Color.BLUE);
+        menuPanel.setBackground(Color.LIGHT_GRAY);
         this.add(menuPanel, BorderLayout.WEST);
 
 
         Panel panel = new Panel();
         panel.setSize(600, 500);
-        panel.setBackground(Color.ORANGE);
+        panel.setBackground(Color.WHITE);
         this.add(panel, BorderLayout.CENTER);
     }
 }
