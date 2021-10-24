@@ -8,24 +8,10 @@ public class MenuPanel extends JPanel {
     private static final int BUTTON_HEIGHT = 25;
     private static final int BUTTON_GAP_HEIGHT = 5;
 
+    private final Panel buttonPanel;
+
     public MenuPanel() {
-        Dimension buttonGap = new Dimension(0, BUTTON_GAP_HEIGHT);
-        Panel buttonPanel = new Panel();
-
-        buttonPanel.add(configureButton(new LineButton()));
-        buttonPanel.add(Box.createRigidArea(buttonGap));
-
-        buttonPanel.add(configureButton(new BoxButton()));
-        buttonPanel.add(Box.createRigidArea(buttonGap));
-
-        buttonPanel.add(configureButton(new CircleButton()));
-        buttonPanel.add(Box.createRigidArea(buttonGap));
-
-        buttonPanel.add(configureButton(new UndoButton()));
-        buttonPanel.add(Box.createRigidArea(buttonGap));
-
-        buttonPanel.add(configureButton(new RedoButton()));
-
+        this.buttonPanel = new Panel();
         BoxLayout layout = new BoxLayout(buttonPanel, BoxLayout.Y_AXIS);
         buttonPanel.setLayout(layout);
         this.add(buttonPanel);
@@ -38,5 +24,11 @@ public class MenuPanel extends JPanel {
         button.setMaximumSize(dimension);
         button.setPreferredSize(dimension);
         return button;
+    }
+
+    public void addButton(JButton button) {
+        Dimension buttonGap = new Dimension(0, BUTTON_GAP_HEIGHT);
+        buttonPanel.add(configureButton(button));
+        buttonPanel.add(Box.createRigidArea(buttonGap));
     }
 }

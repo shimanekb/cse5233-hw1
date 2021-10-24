@@ -4,10 +4,19 @@ import java.awt.*;
 
 public class EditDiagramJFrameFactory {
 
-    public EditDiagramJFrame create() {
+    private MenuPanel menuPanel() {
         MenuPanel menuPanel = new MenuPanel();
-        Panel drawingPanel = new Panel();
+        menuPanel.addButton(new LineButton());
+        menuPanel.addButton(new BoxButton());
+        menuPanel.addButton(new CircleButton());
+        menuPanel.addButton(new UndoButton());
+        menuPanel.addButton(new RedoButton());
 
-        return new EditDiagramJFrame(menuPanel, drawingPanel);
+        return menuPanel;
+    }
+
+    public EditDiagramJFrame create() {
+        Panel drawingPanel = new Panel();
+        return new EditDiagramJFrame(menuPanel(), drawingPanel);
     }
 }
