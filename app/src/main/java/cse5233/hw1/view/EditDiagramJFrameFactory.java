@@ -2,6 +2,7 @@ package cse5233.hw1.view;
 
 import cse5233.hw1.edit.Diagram;
 import cse5233.hw1.edit.EditDiagramController;
+import cse5233.hw1.edit.line.AddLine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,9 +32,16 @@ public class EditDiagramJFrameFactory {
         return menuPanel;
     }
 
+    private Panel drawingPanel() {
+        Panel drawingPanel = new Panel();
+        AddLine.getInstance().setDrawingPanel(drawingPanel);
+
+        return drawingPanel;
+    }
     public EditDiagramJFrame create() {
         logger.info("Creating Edit Diagram GUI with Controller bindings");
-        Panel drawingPanel = new Panel();
-        return new EditDiagramJFrame(menuPanel(), drawingPanel);
+        EditDiagramJFrame frame = new EditDiagramJFrame(menuPanel(), drawingPanel());
+        AddLine.getInstance().setEditFrame(frame);
+        return frame;
     }
 }
