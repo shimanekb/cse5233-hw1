@@ -1,6 +1,5 @@
 package cse5233.hw1.edit.line;
 
-import com.google.inject.Inject;
 import cse5233.hw1.edit.Diagram;
 import cse5233.hw1.edit.State;
 
@@ -46,7 +45,6 @@ public class SelectDestination extends State {
         return diagram;
     }
 
-    @Inject
     public void setDiagram(Diagram diagram) {
         SelectDestination.diagram = diagram;
     }

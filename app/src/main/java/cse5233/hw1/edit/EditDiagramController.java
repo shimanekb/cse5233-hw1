@@ -11,10 +11,10 @@ public class EditDiagramController {
 
     private Diagram diagram;
 
-    public EditDiagramController() {
+    public EditDiagramController(Diagram diagram) {
         // Init line state
+        this.diagram = diagram;
         lineState = AddLine.getInstance();
-        diagram = new Diagram();
         SelectDestination.getInstance().setDiagram(diagram);
     }
 
