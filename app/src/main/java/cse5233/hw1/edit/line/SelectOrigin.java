@@ -1,4 +1,6 @@
-package cse5233.hw1.edit;
+package cse5233.hw1.edit.line;
+
+import cse5233.hw1.edit.State;
 
 public class SelectOrigin extends State {
 
