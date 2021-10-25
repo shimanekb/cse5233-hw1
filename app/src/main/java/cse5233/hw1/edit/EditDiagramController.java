@@ -29,7 +29,8 @@ public class EditDiagramController {
         lineState = lineState.clickedAddLine();
     }
 
-    public void selectOrigin(Point point) {
-        lineState.mousePressed();
+    public void selectOrigin() {
+        logger.info("Mouse clicked, starting origin selection process for line.");
+        lineState = lineState.mousePressed();
     }
 }

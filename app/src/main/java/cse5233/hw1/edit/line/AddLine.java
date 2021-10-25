@@ -4,7 +4,6 @@ import cse5233.hw1.edit.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class AddLine extends State {
@@ -14,8 +13,6 @@ public class AddLine extends State {
     private static AddLine addLine = null;
 
     private static Panel drawingPanel;
-
-    private static JFrame editFrame;
 
     private AddLine() {}
 
@@ -31,9 +28,9 @@ public class AddLine extends State {
     public State clickedAddLine() {
         try {
             logger.info("Clicked add line event triggered.");
-            Point panelPoint = SwingUtilities.convertPoint(drawingPanel, drawingPanel.getX(), drawingPanel.getY(), editFrame);
+            Point currentPoint = drawingPanel.getLocationOnScreen();
             Robot robot = new Robot();
-            robot.mouseMove(panelPoint.x + 500, panelPoint.y + 250);
+            robot.mouseMove(currentPoint.x + 400, currentPoint.y + 250);
             logger.info("Moved cursor to mid screen, moving to Select origin line state.");
             return SelectOrigin.getInstance();
         } catch (AWTException exception) {
@@ -43,9 +40,5 @@ public class AddLine extends State {
 
     public void setDrawingPanel(Panel drawingPanel) {
         AddLine.drawingPanel = drawingPanel;
-    }
-
-    public void setEditFrame(JFrame editFrame) {
-        AddLine.editFrame = editFrame;
     }
 }

@@ -33,11 +33,7 @@ public class SelectDestination extends State {
         return super.mouseReleased();
     }
 
-    public static Point getOriginPoint() {
-        return originPoint;
-    }
-
-    public static void setOriginPoint(Point originPoint) {
+    public void setOriginPoint(Point originPoint) {
         SelectDestination.originPoint = originPoint;
     }
 
