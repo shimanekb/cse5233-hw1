@@ -1,9 +1,11 @@
 package cse5233.hw1.edit.line;
 
 import cse5233.hw1.edit.State;
+import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class SelectOrigin extends State {
@@ -12,7 +14,7 @@ public class SelectOrigin extends State {
 
     private static SelectOrigin selectOrigin = null;
 
-    private static Panel drawingPanel;
+    private static DrawingPanel drawingPanel;
 
     private SelectOrigin() {}
 
@@ -40,6 +42,7 @@ public class SelectOrigin extends State {
             logger.info("Mouse was pressed within drawing panel.");
             logger.info("Recording origin point, moving to destination state.");
             state = SelectDestination.getInstance();
+            SwingUtilities.convertPointFromScreen(mousePoint, drawingPanel);
             SelectDestination.getInstance().setOriginPoint(mousePoint);
         } else {
             logger.info("Mouse was not pressed within drawing panel.");
@@ -49,7 +52,7 @@ public class SelectOrigin extends State {
         return state;
     }
 
-    public void setDrawingPanel(Panel drawingPanel) {
+    public void setDrawingPanel(DrawingPanel drawingPanel) {
         SelectOrigin.drawingPanel = drawingPanel;
     }
 }

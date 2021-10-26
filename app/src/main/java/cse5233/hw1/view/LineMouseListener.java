@@ -7,30 +7,29 @@ import org.slf4j.LoggerFactory;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class SelectOriginMouseListener implements MouseListener {
+public class LineMouseListener implements MouseListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(SelectOriginMouseListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(LineMouseListener.class);
 
     private final EditDiagramController editDiagramController;
 
-    public SelectOriginMouseListener(EditDiagramController editDiagramController) {
+    public LineMouseListener(EditDiagramController editDiagramController) {
         this.editDiagramController = editDiagramController;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        logger.info("Mouse pressed detected.");
-        editDiagramController.selectOrigin();
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        logger.info("Mouse pressed detected.");
+        editDiagramController.mousePressed();
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        editDiagramController.mouseReleased();
     }
 
     @Override

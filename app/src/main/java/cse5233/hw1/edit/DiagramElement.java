@@ -1,5 +1,7 @@
 package cse5233.hw1.edit;
 
+import java.awt.*;
+
 public interface DiagramElement {
-    void draw();
+    void draw(Graphics g);
 }

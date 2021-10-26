@@ -13,13 +13,10 @@ public class EditDiagramController {
 
     private State lineState;
 
-    private Diagram diagram;
-
-    public EditDiagramController(Diagram diagram) {
+    public EditDiagramController() {
         // Init line state
-        this.diagram = diagram;
         lineState = AddLine.getInstance();
-        SelectDestination.getInstance().setDiagram(diagram);
+        SelectDestination.getInstance();
     }
 
     public void addLine() {
@@ -29,8 +26,18 @@ public class EditDiagramController {
         lineState = lineState.clickedAddLine();
     }
 
-    public void selectOrigin() {
-        logger.info("Mouse clicked, starting origin selection process for line.");
+    public void mousePressed() {
+        logger.info("Mouse clicked.");
         lineState = lineState.mousePressed();
+    }
+
+    public void dragMouse() {
+        logger.info("Mouse dragged");
+        lineState = lineState.mouseDragged();
+    }
+
+    public void mouseReleased() {
+        logger.info("Mouse released.");
+        lineState = lineState.mouseReleased();
     }
 }

@@ -6,28 +6,27 @@ import java.awt.*;
 
 public class Line implements DiagramElement {
 
-    private Point origin;
+    private final Point origin;
 
-    private Point destination;
+    private final Point destination;
+
+    public Line(Point origin, Point destination) {
+        this.origin = origin;
+        this.destination = destination;
+    }
 
     public Point getOrigin() {
         return origin;
-    }
-
-    public void setOrigin(Point origin) {
-        this.origin = origin;
     }
 
     public Point getDestination() {
         return destination;
     }
 
-    public void setDestination(Point destination) {
-        this.destination = destination;
-    }
-
     @Override
-    public void draw() {
-
+    public void draw(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g.create();
+        g2d.drawLine(origin.x, origin.y, destination.x, destination.y);
+        g2d.dispose();
     }
 }

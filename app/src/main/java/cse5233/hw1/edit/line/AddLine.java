@@ -1,6 +1,7 @@
 package cse5233.hw1.edit.line;
 
 import cse5233.hw1.edit.State;
+import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ public class AddLine extends State {
 
     private static AddLine addLine = null;
 
-    private static Panel drawingPanel;
+    private static DrawingPanel drawingPanel;
 
     private AddLine() {}
 
@@ -38,7 +39,7 @@ public class AddLine extends State {
         }
     }
 
-    public void setDrawingPanel(Panel drawingPanel) {
+    public void setDrawingPanel(DrawingPanel drawingPanel) {
         AddLine.drawingPanel = drawingPanel;
     }
 }
