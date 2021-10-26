@@ -21,4 +21,8 @@ public class State {
     public State clickedUndoButton() {
         return this;
     }
+
+    public State clickedRedoButton() {
+        return this;
+    }
 }

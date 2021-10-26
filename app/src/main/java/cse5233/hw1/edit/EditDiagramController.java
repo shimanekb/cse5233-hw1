@@ -43,4 +43,9 @@ public class EditDiagramController {
         logger.info("Undo button clicked, starting undo process.");
         state = state.clickedUndoButton();
     }
+
+    public void redo() {
+        logger.info("Starting redo process.");
+        state = state.clickedRedoButton();
+    }
 }

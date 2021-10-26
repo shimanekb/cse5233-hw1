@@ -1,4 +1,4 @@
-package cse5233.hw1.view;
+package cse5233.hw1.view.listeners;
 
 import cse5233.hw1.edit.EditDiagramController;
 import org.slf4j.Logger;

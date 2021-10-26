@@ -20,8 +20,11 @@ public class InitState extends State {
 
     private Stack<DrawCommand> undoStack;
 
+    private Stack<DrawCommand> redoStack;
+
     private InitState() {
         this.undoStack = new Stack<>();
+        this.redoStack = new Stack<>();
     }
 
     public static InitState getInstance() {
@@ -57,6 +60,23 @@ public class InitState extends State {
         logger.info("Attempting undo if reversable. Reversable results " + command.reversable());
         if (command.reversable()) {
             command.undo();
+            redoStack.push(command);
+        }
+
+        return this;
+    }
+
+    @Override
+    public State clickedRedoButton() {
+        if (redoStack.size() == 0) {
+            logger.info("Redo stack is empty, no action needed.");
+            return this;
+        }
+        DrawCommand command = redoStack.pop();
+        logger.info("Attempting undo if reversable. Reversable results " + command.reversable());
+        if (command.reversable()) {
+            command.redo();
+            undoStack.push(command);
         }
 
         return this;

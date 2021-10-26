@@ -9,7 +9,7 @@ public class DiagramElementDrawCommand implements DrawCommand {
 
     private final DiagramElement element;
 
-    private boolean reversable;
+    private final boolean reversable;
 
     public DiagramElementDrawCommand(DrawingPanel drawingPanel, DiagramElement element, boolean reversable) {
         this.drawingPanel = drawingPanel;
@@ -27,13 +27,11 @@ public class DiagramElementDrawCommand implements DrawCommand {
     public void redo() {
         drawingPanel.getDiagram().add(element);
         drawingPanel.repaint();
-        reversable = true;
     }
 
     @Override
     public void execute() {
         drawingPanel.repaint();
-        reversable = true;
     }
 
     @Override

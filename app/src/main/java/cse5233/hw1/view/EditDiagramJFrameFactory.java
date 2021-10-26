@@ -4,6 +4,7 @@ import cse5233.hw1.edit.EditDiagramController;
 import cse5233.hw1.edit.InitState;
 import cse5233.hw1.edit.line.SelectDestination;
 import cse5233.hw1.edit.line.SelectOrigin;
+import cse5233.hw1.view.listeners.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,13 +28,20 @@ public class EditDiagramJFrameFactory {
         return undoButton;
     }
 
+    private RedoButton redoButton(EditDiagramController controller) {
+        RedoButton redoButton = new RedoButton();
+        redoButton.addActionListener(new RedoButtonListener(controller));
+
+        return redoButton;
+    }
+
     private MenuPanel menuPanel(EditDiagramController controller) {
         MenuPanel menuPanel = new MenuPanel();
         menuPanel.addButton(lineButton(controller));
         menuPanel.addButton(new BoxButton());
         menuPanel.addButton(new CircleButton());
         menuPanel.addButton(undoButton(controller));
-        menuPanel.addButton(new RedoButton());
+        menuPanel.addButton(redoButton(controller));
 
         return menuPanel;
     }
