@@ -17,4 +17,8 @@ public class State {
     public State mouseReleased() {
         return this;
     }
+
+    public State clickedUndoButton() {
+        return this;
+    }
 }

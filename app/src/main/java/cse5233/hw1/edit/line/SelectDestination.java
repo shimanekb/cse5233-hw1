@@ -1,7 +1,9 @@
 package cse5233.hw1.edit.line;
 
 import cse5233.hw1.edit.Diagram;
+import cse5233.hw1.edit.InitState;
 import cse5233.hw1.edit.State;
+import cse5233.hw1.edit.cmd.DiagramElementDrawCommand;
 import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,12 +66,13 @@ public class SelectDestination extends State {
 
     @Override
     public State mouseReleased() {
-        State state = AddLine.getInstance();
+        State state = InitState.getInstance();
         logger.info("Mouse released.");
         Point mousePoint = MouseInfo.getPointerInfo().getLocation();
 
         if (isPointInDrawingPanel(mousePoint)) {
             logger.info("Mouse was released within drawing panel, line is drawn.");
+            InitState.getInstance().addUndoCommand(new DiagramElementDrawCommand(drawingPanel, line, true));
             line = null;
         } else {
             logger.info("Mouse was not released within drawing panel.");

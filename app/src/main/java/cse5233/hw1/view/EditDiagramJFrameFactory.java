@@ -1,14 +1,11 @@
 package cse5233.hw1.view;
 
-import cse5233.hw1.edit.Diagram;
 import cse5233.hw1.edit.EditDiagramController;
-import cse5233.hw1.edit.line.AddLine;
+import cse5233.hw1.edit.InitState;
 import cse5233.hw1.edit.line.SelectDestination;
 import cse5233.hw1.edit.line.SelectOrigin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.awt.*;
 
 public class EditDiagramJFrameFactory {
     private final static Logger logger = LoggerFactory.getLogger(EditDiagramJFrameFactory.class);
@@ -23,19 +20,26 @@ public class EditDiagramJFrameFactory {
         return lineButton;
     }
 
+    private UndoButton undoButton(EditDiagramController controller) {
+        UndoButton undoButton = new UndoButton();
+        undoButton.addActionListener(new UndoButtonListener(controller));
+
+        return undoButton;
+    }
+
     private MenuPanel menuPanel(EditDiagramController controller) {
         MenuPanel menuPanel = new MenuPanel();
         menuPanel.addButton(lineButton(controller));
         menuPanel.addButton(new BoxButton());
         menuPanel.addButton(new CircleButton());
-        menuPanel.addButton(new UndoButton());
+        menuPanel.addButton(undoButton(controller));
         menuPanel.addButton(new RedoButton());
 
         return menuPanel;
     }
 
     private void configureLineStateMachine(DrawingPanel drawingPanel) {
-        AddLine.getInstance().setDrawingPanel(drawingPanel);
+        InitState.getInstance().setDrawingPanel(drawingPanel);
         SelectOrigin.getInstance().setDrawingPanel(drawingPanel);
         SelectDestination.getInstance().setDrawingPanel(drawingPanel);
     }
