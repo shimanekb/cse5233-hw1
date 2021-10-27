@@ -35,12 +35,6 @@ public class SelectDestination extends State {
         return selectDestination;
     }
 
-    private boolean isPointInDrawingPanel(Point point) {
-        Rectangle drawingPanelBounds = drawingPanel.getBounds();
-        drawingPanelBounds.setLocation(drawingPanel.getLocationOnScreen());
-        return drawingPanelBounds.contains(point);
-    }
-
     @Override
     public State mouseDragged() {
         logger.info("Mouse dragged while looking for destination.");
@@ -70,7 +64,7 @@ public class SelectDestination extends State {
         logger.info("Mouse released.");
         Point mousePoint = MouseInfo.getPointerInfo().getLocation();
 
-        if (isPointInDrawingPanel(mousePoint)) {
+        if (isPointInDrawingPanel(drawingPanel, mousePoint)) {
             logger.info("Mouse was released within drawing panel, line is drawn.");
             InitState.getInstance().addUndoCommand(new DiagramElementDrawCommand(drawingPanel, line, true));
             line = null;

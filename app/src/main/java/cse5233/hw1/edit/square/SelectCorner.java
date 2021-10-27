@@ -1,4 +1,4 @@
-package cse5233.hw1.edit.line;
+package cse5233.hw1.edit.square;
 
 import cse5233.hw1.edit.State;
 import cse5233.hw1.view.DrawingPanel;
@@ -8,36 +8,38 @@ import org.slf4j.LoggerFactory;
 import javax.swing.*;
 import java.awt.*;
 
-public class SelectOrigin extends State {
+public class SelectCorner extends State {
 
-    private static final Logger logger = LoggerFactory.getLogger(SelectOrigin.class);
+    private static Logger logger = LoggerFactory.getLogger(SelectCorner.class);
 
-    private static SelectOrigin selectOrigin = null;
+    private static SelectCorner selectCorner;
 
-    private static DrawingPanel drawingPanel;
+    private DrawingPanel drawingPanel;
 
-    private SelectOrigin() {}
+    private SelectCorner() {
 
-    public static SelectOrigin getInstance() {
-        if (selectOrigin == null) {
-            selectOrigin = new SelectOrigin();
+    }
+
+    public static SelectCorner getInstance() {
+        if (selectCorner == null) {
+            selectCorner = new SelectCorner();
         }
 
-        return selectOrigin;
+        return selectCorner;
     }
 
     @Override
     public State mousePressed() {
         State state;
-        logger.info("Mouse pressed for placing line origin.");
+        logger.info("Mouse pressed for placing square corner.");
         Point mousePoint = MouseInfo.getPointerInfo().getLocation();
 
         if (isPointInDrawingPanel(drawingPanel, mousePoint)) {
             logger.info("Mouse was pressed within drawing panel.");
-            logger.info("Recording origin point, moving to destination state.");
-            state = SelectDestination.getInstance();
+            logger.info("Recording square corner point, moving to select length square state.");
+            state = SelectLength.getInstance();
             SwingUtilities.convertPointFromScreen(mousePoint, drawingPanel);
-            SelectDestination.getInstance().setOriginPoint(mousePoint);
+            SelectLength.getInstance().setCornerPoint(mousePoint);
         } else {
             logger.info("Mouse was not pressed within drawing panel.");
             state = super.mousePressed();
@@ -47,6 +49,6 @@ public class SelectOrigin extends State {
     }
 
     public void setDrawingPanel(DrawingPanel drawingPanel) {
-        SelectOrigin.drawingPanel = drawingPanel;
+        this.drawingPanel = drawingPanel;
     }
 }

@@ -1,8 +1,9 @@
 package cse5233.hw1.edit;
 
-import cse5233.hw1.edit.cmd.DiagramElementDrawCommand;
+import cse5233.hw1.edit.circle.SelectCenter;
 import cse5233.hw1.edit.cmd.DrawCommand;
 import cse5233.hw1.edit.line.SelectOrigin;
+import cse5233.hw1.edit.square.SelectCorner;
 import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,34 @@ public class InitState extends State {
         }
 
         return initState;
+    }
+
+    @Override
+    public State clickedAddSquare() {
+        try {
+            logger.info("Clicked add square event triggered.");
+            Point currentPoint = drawingPanel.getLocationOnScreen();
+            Robot robot = new Robot();
+            robot.mouseMove(currentPoint.x + 400, currentPoint.y + 250);
+            logger.info("Moved cursor to mid screen, moving to Select corner square state.");
+            return SelectCorner.getInstance();
+        } catch (AWTException exception) {
+            throw new RuntimeException("Could not move cursor after add square.");
+        }
+    }
+
+    @Override
+    public State clickedAddCircle() {
+        try {
+            logger.info("Clicked add circle event triggered.");
+            Point currentPoint = drawingPanel.getLocationOnScreen();
+            Robot robot = new Robot();
+            robot.mouseMove(currentPoint.x + 400, currentPoint.y + 250);
+            logger.info("Moved cursor to mid screen, moving to Select Center circle state.");
+            return SelectCenter.getInstance();
+        } catch (AWTException exception) {
+            throw new RuntimeException("Could not move cursor after add circle.");
+        }
     }
 
     @Override

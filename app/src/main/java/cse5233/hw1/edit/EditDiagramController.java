@@ -24,6 +24,20 @@ public class EditDiagramController {
         state = state.clickedAddLine();
     }
 
+    public void addSquare() {
+        logger.info("Starting add square process.");
+        // Init line state
+        state = InitState.getInstance();
+        state = state.clickedAddSquare();
+    }
+
+    public void addCircle() {
+        logger.info("Starting add circle process.");
+        // Init line state
+        state = InitState.getInstance();
+        state = state.clickedAddCircle();
+    }
+
     public void mousePressed() {
         logger.info("Mouse clicked.");
         state = state.mousePressed();
