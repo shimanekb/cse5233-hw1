@@ -6,8 +6,8 @@ import cse5233.hw1.edit.circle.SelectCenter;
 import cse5233.hw1.edit.circle.SelectRadius;
 import cse5233.hw1.edit.line.SelectDestination;
 import cse5233.hw1.edit.line.SelectOrigin;
-import cse5233.hw1.edit.square.SelectCorner;
-import cse5233.hw1.edit.square.SelectLength;
+import cse5233.hw1.edit.box.SelectCorner;
+import cse5233.hw1.edit.box.SelectLength;
 import cse5233.hw1.view.listeners.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +41,7 @@ public class EditDiagramJFrameFactory {
 
     private BoxButton boxButton(EditDiagramController controller) {
         BoxButton boxButton = new BoxButton();
-        boxButton.addActionListener(new SquareButtonListener(controller));
+        boxButton.addActionListener(new BoxButtonListener(controller));
 
         return boxButton;
     }

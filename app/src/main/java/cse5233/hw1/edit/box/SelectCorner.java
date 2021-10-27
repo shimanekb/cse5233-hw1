@@ -1,4 +1,4 @@
-package cse5233.hw1.edit.square;
+package cse5233.hw1.edit.box;
 
 import cse5233.hw1.edit.State;
 import cse5233.hw1.view.DrawingPanel;

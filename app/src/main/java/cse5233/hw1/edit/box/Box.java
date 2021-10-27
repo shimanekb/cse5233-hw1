@@ -1,16 +1,16 @@
-package cse5233.hw1.edit.square;
+package cse5233.hw1.edit.box;
 
 import cse5233.hw1.edit.DiagramElement;
 
 import java.awt.*;
 
-public class Square implements DiagramElement {
+public class Box implements DiagramElement {
 
     private final int length;
 
     private final Point topLefCornerPoint;
 
-    public Square(Point topLefCornerPoint, int length) {
+    public Box(Point topLefCornerPoint, int length) {
         this.length = length;
         this.topLefCornerPoint = topLefCornerPoint;
     }

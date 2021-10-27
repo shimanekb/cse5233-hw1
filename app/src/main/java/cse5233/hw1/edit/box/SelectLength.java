@@ -1,9 +1,8 @@
-package cse5233.hw1.edit.square;
+package cse5233.hw1.edit.box;
 
 import cse5233.hw1.edit.InitState;
 import cse5233.hw1.edit.State;
 import cse5233.hw1.edit.cmd.DiagramElementDrawCommand;
-import cse5233.hw1.edit.line.Line;
 import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +22,10 @@ public class SelectLength extends State {
 
     private Point cornerPoint;
 
-    private Square square;
+    private Box box;
 
     private SelectLength() {
-        square = null;
+        box = null;
     }
 
     public static SelectLength getInstance() {
@@ -46,11 +45,11 @@ public class SelectLength extends State {
     }
 
     private void removeSquare() {
-        if (square != null) {
-            boolean removed = drawingPanel.getDiagram().remove(square);
+        if (box != null) {
+            boolean removed = drawingPanel.getDiagram().remove(box);
             logger.info("Remove square attempt result " + removed);
             drawingPanel.repaint();
-            square = null;
+            box = null;
         }
     }
 
@@ -63,8 +62,8 @@ public class SelectLength extends State {
         removeSquare();
 
         double length = Point2D.distance(cornerPoint.x, cornerPoint.y, mousePoint.x, mousePoint.y);
-        square = new Square(cornerPoint, (int) length);
-        drawingPanel.getDiagram().add(square);
+        box = new Box(cornerPoint, (int) length);
+        drawingPanel.getDiagram().add(box);
         drawingPanel.repaint();
 
         return this;
@@ -79,8 +78,8 @@ public class SelectLength extends State {
 
         if (isPointInDrawingPanel(drawingPanel, mousePoint)) {
             logger.info("Mouse was released within drawing panel, square is drawn.");
-            InitState.getInstance().addUndoCommand(new DiagramElementDrawCommand(drawingPanel, square, true));
-            square = null;
+            InitState.getInstance().addUndoCommand(new DiagramElementDrawCommand(drawingPanel, box, true));
+            box = null;
         } else {
             logger.info("Mouse was not released within drawing panel.");
             removeSquare();

@@ -3,7 +3,7 @@ package cse5233.hw1.edit;
 import cse5233.hw1.edit.circle.SelectCenter;
 import cse5233.hw1.edit.cmd.DrawCommand;
 import cse5233.hw1.edit.line.SelectOrigin;
-import cse5233.hw1.edit.square.SelectCorner;
+import cse5233.hw1.edit.box.SelectCorner;
 import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +37,7 @@ public class InitState extends State {
     }
 
     @Override
-    public State clickedAddSquare() {
+    public State clickedAddBox() {
         try {
             logger.info("Clicked add square event triggered.");
             Point currentPoint = drawingPanel.getLocationOnScreen();

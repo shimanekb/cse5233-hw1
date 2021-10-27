@@ -34,7 +34,7 @@ public class State {
         return this;
     }
 
-    public State clickedAddSquare() {
+    public State clickedAddBox() {
         return this;
     }
 
