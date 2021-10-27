@@ -7,15 +7,9 @@ import java.awt.event.MouseMotionListener;
 
 public class LineMouseMotionListener implements MouseMotionListener {
 
-    private final EditDiagramController controller;
-
-    public LineMouseMotionListener(EditDiagramController controller) {
-        this.controller = controller;
-    }
-
     @Override
     public void mouseDragged(MouseEvent e) {
-        controller.dragMouse();
+        new EditDiagramController().dragMouse();
     }
 
     @Override

@@ -11,11 +11,6 @@ public class LineMouseListener implements MouseListener {
 
     private static final Logger logger = LoggerFactory.getLogger(LineMouseListener.class);
 
-    private final EditDiagramController editDiagramController;
-
-    public LineMouseListener(EditDiagramController editDiagramController) {
-        this.editDiagramController = editDiagramController;
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -24,12 +19,12 @@ public class LineMouseListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         logger.info("Mouse pressed detected.");
-        editDiagramController.mousePressed();
+        new EditDiagramController().mousePressed();
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        editDiagramController.mouseReleased();
+        new EditDiagramController().mouseReleased();
     }
 
     @Override

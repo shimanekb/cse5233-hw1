@@ -11,15 +11,9 @@ public class UndoButtonListener implements ActionListener  {
 
     private static final Logger logger = LoggerFactory.getLogger(UndoButtonListener.class);
 
-    private final EditDiagramController controller;
-
-    public UndoButtonListener(EditDiagramController controller) {
-        this.controller = controller;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         logger.info("Undo button selected.");
-        controller.undo();
+        new EditDiagramController().undo();
     }
 }

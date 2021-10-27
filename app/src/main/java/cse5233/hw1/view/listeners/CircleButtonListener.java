@@ -11,15 +11,9 @@ public class CircleButtonListener implements ActionListener  {
 
     private static final Logger logger = LoggerFactory.getLogger(CircleButtonListener.class);
 
-    private final EditDiagramController controller;
-
-    public CircleButtonListener(EditDiagramController controller) {
-        this.controller = controller;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         logger.info("Circle button selected.");
-        controller.addCircle();
+        new EditDiagramController().addCircle();
     }
 }

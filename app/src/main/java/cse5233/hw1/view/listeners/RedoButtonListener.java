@@ -11,15 +11,9 @@ public class RedoButtonListener implements ActionListener  {
 
     private static final Logger logger = LoggerFactory.getLogger(RedoButtonListener.class);
 
-    private final EditDiagramController controller;
-
-    public RedoButtonListener(EditDiagramController controller) {
-        this.controller = controller;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         logger.info("Redo button selected.");
-        controller.redo();
+        new EditDiagramController().redo();
     }
 }

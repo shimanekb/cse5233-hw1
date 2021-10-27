@@ -11,15 +11,9 @@ public class LineButtonListener implements ActionListener  {
 
     private static final Logger logger = LoggerFactory.getLogger(LineButtonListener.class);
 
-    private final EditDiagramController controller;
-
-    public LineButtonListener(EditDiagramController controller) {
-        this.controller = controller;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         logger.info("Line button selected.");
-        controller.addLine();
+        new EditDiagramController().addLine();
     }
 }

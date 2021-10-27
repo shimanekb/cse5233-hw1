@@ -1,6 +1,5 @@
 package cse5233.hw1.edit;
 
-import cse5233.hw1.edit.line.SelectDestination;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,12 +8,13 @@ public class EditDiagramController {
 
     private static Logger logger = LoggerFactory.getLogger(EditDiagramController.class);
 
-    private State state;
+    private static State state;
 
     public EditDiagramController() {
         // Init line state
-        state = InitState.getInstance();
-        SelectDestination.getInstance();
+        if (state == null) {
+            state = InitState.getInstance();
+        }
     }
 
     public void addLine() {
