@@ -54,6 +54,12 @@ public class SelectLength extends State {
     }
 
     @Override
+    public State clickedMidButton() {
+        removeSquare();
+        return InitState.getInstance();
+    }
+
+    @Override
     public State mouseDragged() {
         logger.info("Mouse dragged while looking for square length.");
         Point mousePoint = MouseInfo.getPointerInfo().getLocation();

@@ -6,6 +6,10 @@ import java.awt.*;
 
 public class State {
 
+    public State clickedMidButton() {
+        return this;
+    }
+
     public State clickedAddLine() {
         return this;
     }

@@ -1,5 +1,6 @@
 package cse5233.hw1.edit.circle;
 
+import cse5233.hw1.edit.InitState;
 import cse5233.hw1.edit.State;
 import cse5233.hw1.edit.line.SelectDestination;
 import cse5233.hw1.view.DrawingPanel;
@@ -27,6 +28,11 @@ public class SelectCenter extends State {
         }
 
         return selectCenter;
+    }
+
+    @Override
+    public State clickedMidButton() {
+        return InitState.getInstance();
     }
 
     @Override

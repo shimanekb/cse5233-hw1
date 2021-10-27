@@ -89,8 +89,8 @@ public class EditDiagramJFrameFactory {
     public EditDiagramJFrame create() {
         logger.info("Creating Edit Diagram GUI with Controller bindings");
         DrawingPanel drawingPanel = drawingPanel();
-        drawingPanel.addMouseListener(new LineMouseListener());
-        drawingPanel.addMouseMotionListener(new LineMouseMotionListener());
+        drawingPanel.addMouseListener(new DiagramMouseListener());
+        drawingPanel.addMouseMotionListener(new DiagramMouseMotionListener());
         EditDiagramJFrame frame = new EditDiagramJFrame(menuPanel(), drawingPanel);
         return frame;
     }

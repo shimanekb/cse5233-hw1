@@ -64,6 +64,12 @@ public class SelectRadius extends State {
     }
 
     @Override
+    public State clickedMidButton() {
+        removeCircle();
+        return InitState.getInstance();
+    }
+
+    @Override
     public State mouseReleased() {
         State state = InitState.getInstance();
         logger.info("Mouse released.");

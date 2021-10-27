@@ -4,12 +4,13 @@ import cse5233.hw1.edit.EditDiagramController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class LineMouseListener implements MouseListener {
+public class DiagramMouseListener implements MouseListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(LineMouseListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(DiagramMouseListener.class);
 
 
     @Override
@@ -19,7 +20,12 @@ public class LineMouseListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         logger.info("Mouse pressed detected.");
-        new EditDiagramController().mousePressed();
+        if(SwingUtilities.isMiddleMouseButton(e)) {
+            logger.info("Middle mouse button clicked reset.");
+            new EditDiagramController().midButtonClick();
+        } else {
+            new EditDiagramController().mousePressed();
+        }
     }
 
     @Override

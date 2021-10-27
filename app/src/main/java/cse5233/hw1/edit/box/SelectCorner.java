@@ -1,5 +1,6 @@
 package cse5233.hw1.edit.box;
 
+import cse5233.hw1.edit.InitState;
 import cse5233.hw1.edit.State;
 import cse5233.hw1.view.DrawingPanel;
 import org.slf4j.Logger;
@@ -26,6 +27,11 @@ public class SelectCorner extends State {
         }
 
         return selectCorner;
+    }
+
+    @Override
+    public State clickedMidButton() {
+        return InitState.getInstance();
     }
 
     @Override

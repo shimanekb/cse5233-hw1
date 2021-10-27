@@ -49,6 +49,12 @@ public class SelectDestination extends State {
         return this;
     }
 
+    @Override
+    public State clickedMidButton() {
+        removeLine();
+        return InitState.getInstance();
+    }
+
     private void removeLine() {
         if (line != null) {
             boolean removed = drawingPanel.getDiagram().remove(line);

@@ -17,6 +17,10 @@ public class EditDiagramController {
         }
     }
 
+    public void midButtonClick() {
+        logger.info("Mid button clicked, starting reset process.");
+        state = state.clickedMidButton();
+    }
     public void addLine() {
         logger.info("Starting add line process.");
         // Init line state
